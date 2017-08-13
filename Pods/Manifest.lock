@@ -15,20 +15,26 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - NSURL+QueryDictionary (1.2.0)
+  - ReachabilitySwift (3)
   - SDWebImage (4.1.0):
     - SDWebImage/Core (= 4.1.0)
   - SDWebImage/Core (4.1.0)
+  - SnapKit (3.2.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1)
   - NSURL+QueryDictionary (~> 1.1)
+  - ReachabilitySwift (~> 3)
   - SDWebImage (~> 4.0)
+  - SnapKit
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   NSURL+QueryDictionary: bae616404e2adf6409d3d5c02a093cbf44c8a236
+  ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
   SDWebImage: 0e435c14e402a6730315a0fb79f95e68654d55a4
+  SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
 
-PODFILE CHECKSUM: ac1e7212d27a319cd3647807f2dba38d144b5d5c
+PODFILE CHECKSUM: 905f2ba4546870b592944f40dab3808f1f573f0d
 
-COCOAPODS: 1.0.0
+COCOAPODS: 1.3.1

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ErrorView" customModule="VidMeClient">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SmZ-xc-PkP">
+                    <rect key="frame" x="10" y="28.5" width="355" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.79208678007125854" green="0.7922016978263855" blue="0.79206162691116333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="SmZ-xc-PkP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="1HU-Lk-eVz"/>
+                <constraint firstAttribute="trailing" secondItem="SmZ-xc-PkP" secondAttribute="trailing" constant="10" id="PKL-Cq-wcO"/>
+                <constraint firstItem="SmZ-xc-PkP" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Vvy-fk-jf7"/>
+                <constraint firstItem="SmZ-xc-PkP" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="cbW-ow-rcU"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="errorLabel" destination="SmZ-xc-PkP" id="ugJ-FT-sDf"/>
+            </connections>
+        </view>
+    </objects>
+</document>

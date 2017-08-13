@@ -15,12 +15,13 @@ class FeaturedRequest: VidMeRequest
 {
     var request: URLSessionDataTask?
     var success:FeaturedRequestClosureSuccess?
-    var offset = 0
-    var loadCount = 20
+    var offset: UInt = 0
+    var loadCount = 10
     init(offset:UInt, success:FeaturedRequestClosureSuccess?, failure:@escaping VMClosureFailure)
     {
         super.init(failure: failure)
        self.success = success
+        self.offset = offset
         send()
     }
     
@@ -42,17 +43,17 @@ class FeaturedRequest: VidMeRequest
                 self.handleFailure(nil)
                 return
             }
+            do {
+                let videos = try rows.flatMap({ (videoDict) -> VidMeVideo? in
+                    return try VidMeVideo(json: videoDict)
+                })
+                self.success?(videos)
+            } catch let error as NSError
+            {
+                self.handleFailure(error)
+                return
+            }
             print(rows)
-//            let html = String(data: htmlData!, encoding: String.Encoding.utf8)
-//            guard html != nil else {
-//                self.handleFailure(nil)
-//                return
-//            }
-//            do {
-////                try self.handleSuccess(html!)
-//            } catch let error as NSError {
-//                self.handleFailure(error)
-//            }
         }
         
         let failureBlock = { (task: URLSessionDataTask?, error: Error) -> Void in
@@ -63,3 +64,33 @@ class FeaturedRequest: VidMeRequest
         self.request = self.manager.get(urlString, parameters: parameters, progress: nil, success: successBlock, failure: failureBlock)
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

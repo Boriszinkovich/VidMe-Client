@@ -18,9 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        WebService.sharedInstance.featured(offset: 1, success: nil, failure: { (error) in
-
-        })
+//        WebService.sharedInstance.getFeaturedList(offset: 1, success: nil, failure: { (error) in
+//
+//        })
+//        [[UITabBarItem appearance] setTitleTextAttributes:@{
+//            NSFontAttributeName:[UIFont fontWithName:@"AmericanTypewriter" size:20.0f]
+//        } forState:UIControlStateNormal];
+        UITabBarItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont (name: "GillSans-Italic", size: 13)!], for: .normal)
         return true
     }
 

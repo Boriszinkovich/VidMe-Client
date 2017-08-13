@@ -13,8 +13,13 @@ class WebService: NSObject
     static let sharedInstance = WebService()
     
     
-    func featured(offset: UInt, success: FeaturedRequestClosureSuccess?, failure: @escaping VMClosureFailure) -> VidMeRequest
+    func getFeaturedList(offset: UInt, success: FeaturedRequestClosureSuccess?, failure: @escaping VMClosureFailure) -> VidMeRequest
     {
         return FeaturedRequest(offset: offset, success: success, failure: failure)
+    }
+    
+    func getNewVideosList(offset: UInt, success: NewVideosRequestClosureSuccess?, failure: @escaping VMClosureFailure) -> VidMeRequest
+    {
+        return NewVideosRequest(offset: offset, success: success, failure: failure)
     }
 }

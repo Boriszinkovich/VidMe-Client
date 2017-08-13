@@ -7,23 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE6BCA1C1F40A1C400E6FF79 /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6BCA1B1F40A1C400E6FF79 /* ErrorView.xib */; };
+		CE6BCA1E1F40A24300E6FF79 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6BCA1D1F40A24300E6FF79 /* ErrorView.swift */; };
+		CE6BCA211F40B07100E6FF79 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6BCA201F40B07100E6FF79 /* Extensions.swift */; };
+		CE6BCA231F40C3E400E6FF79 /* AuthCreateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6BCA221F40C3E400E6FF79 /* AuthCreateRequest.swift */; };
 		CE75B6501F3F75A300EAD85E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE75B64F1F3F75A300EAD85E /* AppDelegate.swift */; };
 		CE75B6521F3F75A300EAD85E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE75B6511F3F75A300EAD85E /* ViewController.swift */; };
 		CE75B6581F3F75A300EAD85E /* VidMeClient.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE75B6561F3F75A300EAD85E /* VidMeClient.xcdatamodeld */; };
 		CE75B66C1F3F760200EAD85E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE75B6651F3F760200EAD85E /* Assets.xcassets */; };
 		CE75B66D1F3F760200EAD85E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE75B6661F3F760200EAD85E /* LaunchScreen.storyboard */; };
 		CE75B66E1F3F760200EAD85E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE75B6681F3F760200EAD85E /* Main.storyboard */; };
-		CE75B66F1F3F760200EAD85E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE75B66A1F3F760200EAD85E /* Info.plist */; };
+		CE7BFB0C1F4040AB0041D45D /* FeaturedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7BFB0B1F4040AB0041D45D /* FeaturedVC.swift */; };
+		CE7BFB0E1F4040DE0041D45D /* NewVideosVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7BFB0D1F4040DE0041D45D /* NewVideosVC.swift */; };
+		CE7BFB101F4041090041D45D /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7BFB0F1F4041090041D45D /* FeedVC.swift */; };
+		CE7BFB121F4041AF0041D45D /* VideoCellXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE7BFB111F4041AF0041D45D /* VideoCellXib.xib */; };
+		CE7BFB141F4041D20041D45D /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7BFB131F4041D20041D45D /* VideoCell.swift */; };
+		CE7BFB181F405F560041D45D /* VideoListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7BFB171F405F560041D45D /* VideoListVC.swift */; };
 		CE8D562E1F3F7E080098EC3C /* VidMeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D562D1F3F7E080098EC3C /* VidMeRequest.swift */; };
 		CE8D56301F3F827F0098EC3C /* FeaturedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D562F1F3F827F0098EC3C /* FeaturedRequest.swift */; };
 		CE8D56331F3F87820098EC3C /* VidMeVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D56321F3F87820098EC3C /* VidMeVideo.swift */; };
 		CE8D56351F3F91F70098EC3C /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D56341F3F91F70098EC3C /* WebService.swift */; };
+		CEC056311F4091120086113D /* NewVideosRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC056301F4091120086113D /* NewVideosRequest.swift */; };
 		FC9EBEB40752F64127A2CF18 /* Pods_VidMeClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 682E8978F60BE94FBF4D1B75 /* Pods_VidMeClient.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3BF1971C75F15618E33B2DCF /* Pods-VidMeClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VidMeClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-VidMeClient/Pods-VidMeClient.release.xcconfig"; sourceTree = "<group>"; };
 		682E8978F60BE94FBF4D1B75 /* Pods_VidMeClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VidMeClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE6BCA1B1F40A1C400E6FF79 /* ErrorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
+		CE6BCA1D1F40A24300E6FF79 /* ErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		CE6BCA201F40B07100E6FF79 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		CE6BCA221F40C3E400E6FF79 /* AuthCreateRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthCreateRequest.swift; sourceTree = "<group>"; };
 		CE75B64C1F3F75A300EAD85E /* VidMeClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VidMeClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE75B64F1F3F75A300EAD85E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE75B6511F3F75A300EAD85E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -32,10 +46,17 @@
 		CE75B6671F3F760200EAD85E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE75B6691F3F760200EAD85E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE75B66A1F3F760200EAD85E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE7BFB0B1F4040AB0041D45D /* FeaturedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeaturedVC.swift; sourceTree = "<group>"; };
+		CE7BFB0D1F4040DE0041D45D /* NewVideosVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewVideosVC.swift; sourceTree = "<group>"; };
+		CE7BFB0F1F4041090041D45D /* FeedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
+		CE7BFB111F4041AF0041D45D /* VideoCellXib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoCellXib.xib; sourceTree = "<group>"; };
+		CE7BFB131F4041D20041D45D /* VideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
+		CE7BFB171F405F560041D45D /* VideoListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoListVC.swift; sourceTree = "<group>"; };
 		CE8D562D1F3F7E080098EC3C /* VidMeRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VidMeRequest.swift; sourceTree = "<group>"; };
 		CE8D562F1F3F827F0098EC3C /* FeaturedRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeaturedRequest.swift; sourceTree = "<group>"; };
 		CE8D56321F3F87820098EC3C /* VidMeVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VidMeVideo.swift; sourceTree = "<group>"; };
 		CE8D56341F3F91F70098EC3C /* WebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		CEC056301F4091120086113D /* NewVideosRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewVideosRequest.swift; sourceTree = "<group>"; };
 		FFFD40BFEACB096E394D6123 /* Pods-VidMeClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VidMeClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VidMeClient/Pods-VidMeClient.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,6 +89,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		CE6BCA1F1F40ABC800E6FF79 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				CE6BCA201F40B07100E6FF79 /* Extensions.swift */,
+			);
+			name = Helpers;
+			path = VidMeClient/Helpers;
+			sourceTree = SOURCE_ROOT;
+		};
 		CE75B6431F3F75A300EAD85E = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +123,7 @@
 				CE75B6511F3F75A300EAD85E /* ViewController.swift */,
 				CE75B6641F3F760200EAD85E /* Resources */,
 				CE75B66B1F3F760200EAD85E /* Model */,
+				CE7BFB0A1F40403A0041D45D /* UI */,
 				CE75B6561F3F75A300EAD85E /* VidMeClient.xcdatamodeld */,
 			);
 			path = VidMeClient;
@@ -105,6 +136,8 @@
 				CE75B6661F3F760200EAD85E /* LaunchScreen.storyboard */,
 				CE75B6681F3F760200EAD85E /* Main.storyboard */,
 				CE75B66A1F3F760200EAD85E /* Info.plist */,
+				CE7BFB111F4041AF0041D45D /* VideoCellXib.xib */,
+				CE6BCA1B1F40A1C400E6FF79 /* ErrorView.xib */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -112,6 +145,7 @@
 		CE75B66B1F3F760200EAD85E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CE6BCA1F1F40ABC800E6FF79 /* Helpers */,
 				CE8D56311F3F85590098EC3C /* Entities */,
 				CE8D562C1F3F7DF40098EC3C /* Requests */,
 				CE8D56341F3F91F70098EC3C /* WebService.swift */,
@@ -119,11 +153,26 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		CE7BFB0A1F40403A0041D45D /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				CE7BFB171F405F560041D45D /* VideoListVC.swift */,
+				CE7BFB0B1F4040AB0041D45D /* FeaturedVC.swift */,
+				CE7BFB0D1F4040DE0041D45D /* NewVideosVC.swift */,
+				CE7BFB0F1F4041090041D45D /* FeedVC.swift */,
+				CE7BFB131F4041D20041D45D /* VideoCell.swift */,
+				CE6BCA1D1F40A24300E6FF79 /* ErrorView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		CE8D562C1F3F7DF40098EC3C /* Requests */ = {
 			isa = PBXGroup;
 			children = (
 				CE8D562D1F3F7E080098EC3C /* VidMeRequest.swift */,
 				CE8D562F1F3F827F0098EC3C /* FeaturedRequest.swift */,
+				CEC056301F4091120086113D /* NewVideosRequest.swift */,
+				CE6BCA221F40C3E400E6FF79 /* AuthCreateRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -143,12 +192,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE75B6611F3F75A300EAD85E /* Build configuration list for PBXNativeTarget "VidMeClient" */;
 			buildPhases = (
-				7B3EC487049A3DEBC2230463 /* 📦 Check Pods Manifest.lock */,
+				7B3EC487049A3DEBC2230463 /* [CP] Check Pods Manifest.lock */,
 				CE75B6481F3F75A300EAD85E /* Sources */,
 				CE75B6491F3F75A300EAD85E /* Frameworks */,
 				CE75B64A1F3F75A300EAD85E /* Resources */,
-				BDC751B905031996B13401E3 /* 📦 Embed Pods Frameworks */,
-				201CA3A4A8F1F71089147780 /* 📦 Copy Pods Resources */,
+				BDC751B905031996B13401E3 /* [CP] Embed Pods Frameworks */,
+				201CA3A4A8F1F71089147780 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -200,24 +249,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE75B66F1F3F760200EAD85E /* Info.plist in Resources */,
+				CE7BFB121F4041AF0041D45D /* VideoCellXib.xib in Resources */,
 				CE75B66E1F3F760200EAD85E /* Main.storyboard in Resources */,
 				CE75B66C1F3F760200EAD85E /* Assets.xcassets in Resources */,
 				CE75B66D1F3F760200EAD85E /* LaunchScreen.storyboard in Resources */,
+				CE6BCA1C1F40A1C400E6FF79 /* ErrorView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		201CA3A4A8F1F71089147780 /* 📦 Copy Pods Resources */ = {
+		201CA3A4A8F1F71089147780 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -225,30 +275,44 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VidMeClient/Pods-VidMeClient-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7B3EC487049A3DEBC2230463 /* 📦 Check Pods Manifest.lock */ = {
+		7B3EC487049A3DEBC2230463 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VidMeClient-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BDC751B905031996B13401E3 /* 📦 Embed Pods Frameworks */ = {
+		BDC751B905031996B13401E3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-VidMeClient/Pods-VidMeClient-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/NSURL+QueryDictionary/NSURL_QueryDictionary.framework",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/ReachabilitySwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NSURL_QueryDictionary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReachabilitySwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -262,11 +326,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE7BFB181F405F560041D45D /* VideoListVC.swift in Sources */,
+				CE6BCA231F40C3E400E6FF79 /* AuthCreateRequest.swift in Sources */,
+				CE7BFB0E1F4040DE0041D45D /* NewVideosVC.swift in Sources */,
 				CE75B6521F3F75A300EAD85E /* ViewController.swift in Sources */,
+				CE7BFB101F4041090041D45D /* FeedVC.swift in Sources */,
 				CE75B6501F3F75A300EAD85E /* AppDelegate.swift in Sources */,
 				CE8D56351F3F91F70098EC3C /* WebService.swift in Sources */,
 				CE75B6581F3F75A300EAD85E /* VidMeClient.xcdatamodeld in Sources */,
+				CE7BFB0C1F4040AB0041D45D /* FeaturedVC.swift in Sources */,
+				CE7BFB141F4041D20041D45D /* VideoCell.swift in Sources */,
 				CE8D562E1F3F7E080098EC3C /* VidMeRequest.swift in Sources */,
+				CE6BCA211F40B07100E6FF79 /* Extensions.swift in Sources */,
+				CEC056311F4091120086113D /* NewVideosRequest.swift in Sources */,
+				CE6BCA1E1F40A24300E6FF79 /* ErrorView.swift in Sources */,
 				CE8D56301F3F827F0098EC3C /* FeaturedRequest.swift in Sources */,
 				CE8D56331F3F87820098EC3C /* VidMeVideo.swift in Sources */,
 			);
