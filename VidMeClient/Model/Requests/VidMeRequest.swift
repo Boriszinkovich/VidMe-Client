@@ -17,7 +17,8 @@ class VidMeRequest: NSObject
 {
     
     static let host = "https://api.vid.me"
-    
+    static let appKey = "JJxeSOZp4SYkENl1CiZAxpunJwlwKPmb"
+    static let appSecret = "pTCaoJYfReqGcFeViSIAuuUJueGUqrfMiEWrBYOp"
     var isCancelled = false
     var failure: VMClosureFailure?
     var manager: AFHTTPSessionManager!

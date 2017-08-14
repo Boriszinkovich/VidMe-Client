@@ -21,6 +21,8 @@ class AuthCreateRequest: VidMeRequest
     {
         super.init(failure: failure)
         self.success = success
+        self.login = login
+        self.password = password
         send()
     }
     
@@ -30,38 +32,27 @@ class AuthCreateRequest: VidMeRequest
         let urlString = VidMeRequest.host + "/auth/create"
         let parameters = ["username" : self.login, "password" : self.password]
         let successBlock = { (task: URLSessionDataTask, responseObject: Any?) -> Void in
-//            let jsonData = responseObject as? Data
-//            guard let data = jsonData,
-//                let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any] else
-//            {
-//                self.handleFailure(nil)
-//                return
-//            }
-//            guard let rows = json!["videos"] as? [[String: Any]] else
-//            {
-//                self.handleFailure(nil)
-//                return
-//            }
-//            do {
-//                let videos = try rows.flatMap({ (videoDict) -> VidMeVideo? in
-//                    return try VidMeVideo(json: videoDict)
-//                })
-//                self.success?(videos)
-//            } catch let error as NSError
-//            {
-//                self.handleFailure(error)
-//                return
-//            }
-//            print(rows)
+            let jsonData = responseObject as? Data
+            guard let data = jsonData,
+                let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any] else
+            {
+                self.handleFailure(nil)
+                return
+            }
+            print(json)
         }
         
         let failureBlock = { (task: URLSessionDataTask?, error: Error) -> Void in
 //            self.handleFailure(error)
+            print(error.localizedDescription)
         }
         
+        let str = VidMeRequest.appKey + ":" + VidMeRequest.appSecret
         self.manager.responseSerializer = AFHTTPResponseSerializer()
-        self.manager.requestSerializer.setValue("", forHTTPHeaderField: "")
-        self.request = self.manager.get(urlString, parameters: parameters, progress: nil, success: successBlock, failure: failureBlock)
+        let base64Encoded = Data(str.utf8).base64EncodedString()
+            self.manager.requestSerializer.setValue("Basic " + base64Encoded, forHTTPHeaderField: "Authorization")
+            self.request = self.manager.post(urlString, parameters: parameters, progress: nil, success: successBlock, failure: failureBlock)
+
     }
 }
 

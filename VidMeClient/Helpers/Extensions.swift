@@ -41,7 +41,13 @@ extension UIColor
     }
 }
 
-
+extension UIFont
+{
+    public class func getAppStyleFont(size: CGFloat) -> UIFont
+    {
+        return UIFont(name: "GillSans-Italic", size: size)!
+    }
+}
 
 
 

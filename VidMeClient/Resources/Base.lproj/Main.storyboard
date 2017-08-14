@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wBV-ag-Rl5">
-    <device id="retina5_5" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -18,7 +18,7 @@
                         <viewControllerLayoutGuide type="bottom" id="NEy-zC-qcK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="alC-yk-54u">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -31,17 +31,72 @@
         <!--FEED-->
         <scene sceneID="YDe-YX-dET">
             <objects>
-                <viewController id="Uxz-pF-fsY" sceneMemberID="viewController">
+                <viewController id="Uxz-pF-fsY" customClass="FeedVC" customModule="VidMeClient" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rHx-iV-MQK"/>
                         <viewControllerLayoutGuide type="bottom" id="z6G-Tt-SWD"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="swf-7m-8aY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pzc-Yy-q8m">
+                                <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DSE-BO-SAK">
+                                        <rect key="frame" x="55" y="282" width="210" height="35"/>
+                                        <color key="backgroundColor" red="0.42383873462677002" green="0.66514426469802856" blue="0.96595507860183716" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="1ZP-UW-ktD"/>
+                                        </constraints>
+                                        <state key="normal" title="Login">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HfR-Xg-DZJ">
+                                        <rect key="frame" x="55" y="222" width="210" height="35"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cZM-ME-NGn">
+                                        <rect key="frame" x="55" y="162" width="210" height="35"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="cZM-ME-NGn" firstAttribute="height" secondItem="DSE-BO-SAK" secondAttribute="height" id="0xJ-Xk-4o8"/>
+                                    <constraint firstItem="DSE-BO-SAK" firstAttribute="top" secondItem="HfR-Xg-DZJ" secondAttribute="bottom" constant="25" id="5oD-dn-sIj"/>
+                                    <constraint firstItem="DSE-BO-SAK" firstAttribute="width" secondItem="Pzc-Yy-q8m" secondAttribute="width" constant="-110" id="6fw-pT-l62"/>
+                                    <constraint firstItem="cZM-ME-NGn" firstAttribute="centerX" secondItem="Pzc-Yy-q8m" secondAttribute="centerX" id="9Hg-Zd-uqA"/>
+                                    <constraint firstItem="HfR-Xg-DZJ" firstAttribute="width" secondItem="DSE-BO-SAK" secondAttribute="width" id="Hvj-qg-M31"/>
+                                    <constraint firstItem="HfR-Xg-DZJ" firstAttribute="height" secondItem="DSE-BO-SAK" secondAttribute="height" id="M9U-ga-E4H"/>
+                                    <constraint firstItem="HfR-Xg-DZJ" firstAttribute="centerX" secondItem="Pzc-Yy-q8m" secondAttribute="centerX" id="Mf9-1K-CRm"/>
+                                    <constraint firstItem="cZM-ME-NGn" firstAttribute="width" secondItem="DSE-BO-SAK" secondAttribute="width" id="VF6-1o-Iun"/>
+                                    <constraint firstItem="DSE-BO-SAK" firstAttribute="centerY" secondItem="Pzc-Yy-q8m" secondAttribute="centerY" constant="50" id="b7L-QU-ruu"/>
+                                    <constraint firstItem="DSE-BO-SAK" firstAttribute="centerX" secondItem="Pzc-Yy-q8m" secondAttribute="centerX" id="neV-X2-1nt"/>
+                                    <constraint firstItem="HfR-Xg-DZJ" firstAttribute="top" secondItem="cZM-ME-NGn" secondAttribute="bottom" constant="25" id="zJz-Ik-gAB"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Pzc-Yy-q8m" firstAttribute="top" secondItem="rHx-iV-MQK" secondAttribute="bottom" id="MU4-K4-Akv"/>
+                            <constraint firstItem="Pzc-Yy-q8m" firstAttribute="leading" secondItem="swf-7m-8aY" secondAttribute="leading" id="PO5-fS-7JH"/>
+                            <constraint firstItem="z6G-Tt-SWD" firstAttribute="top" secondItem="Pzc-Yy-q8m" secondAttribute="bottom" id="POE-Os-wZy"/>
+                            <constraint firstAttribute="trailing" secondItem="Pzc-Yy-q8m" secondAttribute="trailing" id="Plc-3Q-Os1"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="FEED" image="home1600" id="JgC-vv-vmk"/>
+                    <connections>
+                        <outlet property="SignInButton" destination="DSE-BO-SAK" id="L5E-Zz-C9a"/>
+                        <outlet property="passwordTextField" destination="HfR-Xg-DZJ" id="8z1-zB-QOv"/>
+                        <outlet property="signInButton" destination="DSE-BO-SAK" id="TLF-oB-aO1"/>
+                        <outlet property="usernameTextField" destination="cZM-ME-NGn" id="YC8-Jg-ogy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MDO-JT-5WV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -56,7 +111,7 @@
                         <viewControllerLayoutGuide type="bottom" id="DfI-Dl-Sws"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gHo-ln-s0C">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>

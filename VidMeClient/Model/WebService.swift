@@ -22,4 +22,9 @@ class WebService: NSObject
     {
         return NewVideosRequest(offset: offset, success: success, failure: failure)
     }
+    
+    func authUser(username: String, password: String, success: AuthCreateRequestClosureSuccess?, failure: @escaping VMClosureFailure) -> VidMeRequest
+    {
+        return AuthCreateRequest(password: password, login: username, success:success, failure: failure)
+    }
 }

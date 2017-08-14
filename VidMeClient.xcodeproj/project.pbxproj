@@ -198,6 +198,7 @@
 				CE75B64A1F3F75A300EAD85E /* Resources */,
 				BDC751B905031996B13401E3 /* [CP] Embed Pods Frameworks */,
 				201CA3A4A8F1F71089147780 /* [CP] Copy Pods Resources */,
+				CE5EF8031F42359200B1AE34 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -318,6 +319,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VidMeClient/Pods-VidMeClient-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		CE5EF8031F42359200B1AE34 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "TAGS=\"TODO:|FIXME:\"\necho \"searching ${SRCROOT} for ${TAGS}\"\nfind \"${SRCROOT}\" \\( -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
