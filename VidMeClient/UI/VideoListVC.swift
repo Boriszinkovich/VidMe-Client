@@ -17,12 +17,19 @@ class VideoListVC: UIViewController
     fileprivate var footerView: UICollectionReusableView!
     fileprivate var refreshControl: UIRefreshControl!
     fileprivate var errorHeightConstraint: Constraint? = nil
-    fileprivate var errorView:ErrorView!
+    internal var errorView:ErrorView!
     
-    fileprivate var internetReachability: Reachability!
+    internal var internetReachability: Reachability!
     fileprivate var videosArray = Array<VidMeVideo>()
     fileprivate var isUploading = false
-    fileprivate var isRefreshing = false
+    internal var isRefreshing = false
+    fileprivate var hasMoreVideos = true
+        {
+            didSet
+            {
+                (self.collView.collectionViewLayout as! UICollectionViewFlowLayout).footerReferenceSize = CGSize(width: self.view.bounds.size.width, height: hasMoreVideos == true ? 70 : 0)
+            }
+    }
     
     fileprivate let errorViewHeight = 35
     
@@ -59,6 +66,18 @@ class VideoListVC: UIViewController
         } catch {
         }
         self.uploadVideos()
+    }
+    
+    override func viewWillAppear(_ animated: Bool)
+    {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool)
+    {
+        super.viewWillDisappear(animated)
+        self.navigationController?.isNavigationBarHidden = false
     }
     
     func methodLoadVideos(offset:UInt)
@@ -101,14 +120,17 @@ class VideoListVC: UIViewController
             self.videosArray.removeAll()
             self.isRefreshing = false
         }
-        var hasVideo = true
+        var noNewVideo = true
+        var theCheckedVideoSet = Set<VidMeVideo>()
         for vidMeVideo in videos {
-            if hasVideo == false || self.videosArray.index(of: vidMeVideo) == nil
+            if noNewVideo == false || self.videosArray.index(of: vidMeVideo) == nil
             {
-                hasVideo = false
-                self.videosArray.append(vidMeVideo)
+                noNewVideo = false
+                theCheckedVideoSet.insert(vidMeVideo)
             }
         }
+        self.hasMoreVideos = videos.count != 0
+        self.videosArray.append(contentsOf: theCheckedVideoSet)
         self.isUploading = false
         self.collView.reloadData()
     }
@@ -207,6 +229,11 @@ extension VideoListVC :  UICollectionViewDataSource
         return UICollectionReusableView();
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
+    {
+        let showVideoVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ShowVideoVCID")
+        self.navigationController?.pushViewController(showVideoVC, animated: true)
+    }
 }
 
 extension VideoListVC: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate
@@ -233,7 +260,10 @@ extension VideoListVC: UICollectionViewDelegateFlowLayout, UICollectionViewDeleg
     {
         if ((scrollView.contentOffset.y + scrollView.frame.size.height) >= scrollView.contentSize.height - self.view.bounds.size.height)
         {
-            self.uploadVideos()
+            if self.hasMoreVideos == true
+            {
+                self.uploadVideos()
+            }
         }
     }
 }

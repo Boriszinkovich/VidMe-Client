@@ -25,7 +25,6 @@ class NewVideosRequest: VidMeRequest
         send()
     }
     
-    
     override func send()
     {
         let urlString = VidMeRequest.host + "/videos/new"

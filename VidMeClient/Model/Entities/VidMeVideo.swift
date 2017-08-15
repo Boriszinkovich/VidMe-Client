@@ -24,6 +24,17 @@ extension VidMeVideo: Equatable
     }
 }
 
+extension VidMeVideo: Hashable
+{
+    public var hashValue: Int {
+        get
+        {
+            return title.hashValue ^ likesCount ^ videoId.hashValue
+        }
+    }
+
+}
+
 extension VidMeVideo
 {
     init(json: [String: Any]) throws

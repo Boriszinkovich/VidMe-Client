@@ -16,20 +16,19 @@ class FeaturedRequest: VidMeRequest
     var request: URLSessionDataTask?
     var success:FeaturedRequestClosureSuccess?
     var offset: UInt = 0
-    var loadCount = 10
+    var loadCount: UInt = 10
     init(offset:UInt, success:FeaturedRequestClosureSuccess?, failure:@escaping VMClosureFailure)
     {
         super.init(failure: failure)
-       self.success = success
+        self.success = success
         self.offset = offset
         send()
     }
     
-    
     override func send()
     {
         let urlString = VidMeRequest.host + "/videos/featured"
-        let parameters = ["offset" : offset]
+        let parameters = ["offset" : offset, "limit" : loadCount]
         let successBlock = { (task: URLSessionDataTask, responseObject: Any?) -> Void in
             let jsonData = responseObject as? Data
             guard let data = jsonData,
@@ -53,7 +52,6 @@ class FeaturedRequest: VidMeRequest
                 self.handleFailure(error)
                 return
             }
-            print(rows)
         }
         
         let failureBlock = { (task: URLSessionDataTask?, error: Error) -> Void in

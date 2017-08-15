@@ -9,7 +9,7 @@
 import Foundation
 import AFNetworking
 
-typealias AuthCreateRequestClosureSuccess = (_ created: Bool, _ token: String) -> Void
+typealias AuthCreateRequestClosureSuccess = (_ token: AccessToken) -> Void
 
 class AuthCreateRequest: VidMeRequest
 {
@@ -39,19 +39,30 @@ class AuthCreateRequest: VidMeRequest
                 self.handleFailure(nil)
                 return
             }
-            print(json)
+            guard let tokenJson = json!["auth"] as? [String: Any] else
+            {
+                self.handleFailure(nil)
+                return
+            }
+            do {
+                let accessToken = try AccessToken(json: tokenJson)
+                self.success?(accessToken)
+            } catch let error as NSError
+            {
+                self.handleFailure(error)
+                return
+            }
         }
         
         let failureBlock = { (task: URLSessionDataTask?, error: Error) -> Void in
-//            self.handleFailure(error)
-            print(error.localizedDescription)
+            self.handleFailure(error)
         }
         
         let str = VidMeRequest.appKey + ":" + VidMeRequest.appSecret
         self.manager.responseSerializer = AFHTTPResponseSerializer()
         let base64Encoded = Data(str.utf8).base64EncodedString()
-            self.manager.requestSerializer.setValue("Basic " + base64Encoded, forHTTPHeaderField: "Authorization")
-            self.request = self.manager.post(urlString, parameters: parameters, progress: nil, success: successBlock, failure: failureBlock)
+        self.manager.requestSerializer.setValue("Basic " + base64Encoded, forHTTPHeaderField: "Authorization")
+        self.request = self.manager.post(urlString, parameters: parameters, progress: nil, success: successBlock, failure: failureBlock)
 
     }
 }

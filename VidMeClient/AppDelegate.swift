@@ -18,9 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        WebService.sharedInstance.authUser(username: "BorisZinkovich", password: "Rbtd02101996", success:nil, failure: { (error) in
-            
-                    })
+//        KeyChainStorage.sharedInstance.removeAll()
+//        WebService.sharedInstance.authUser(username: "BorisZinkovich", password: "Rbtd02101996")
         UITabBarItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont (name: "GillSans-Italic", size: 13)!], for: .normal)
         return true
     }

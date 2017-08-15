@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FB6BAAE2BB59B919F8210815D12C71B0"
+               BlueprintIdentifier = "AA7E3DCD0D58D97DDDF46ED80212239F"
                BuildableName = "Pods_VidMeClient.framework"
                BlueprintName = "Pods-VidMeClient"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FB6BAAE2BB59B919F8210815D12C71B0"
+            BlueprintIdentifier = "AA7E3DCD0D58D97DDDF46ED80212239F"
             BuildableName = "Pods_VidMeClient.framework"
             BlueprintName = "Pods-VidMeClient"
             ReferencedContainer = "container:Pods.xcodeproj">

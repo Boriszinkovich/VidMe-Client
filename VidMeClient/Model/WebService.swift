@@ -8,10 +8,18 @@
 
 import Foundation
 
+protocol AuthListener: NSObjectProtocol
+{
+    func authStarted()
+    func authorizeFailed(error: Error)
+    func authorizeSuccess(user: User)
+}
+
 class WebService: NSObject
 {
     static let sharedInstance = WebService()
-    
+    private(set) public var user: User? = User.restoreFromStorage()
+    weak var authListener: AuthListener?
     
     func getFeaturedList(offset: UInt, success: FeaturedRequestClosureSuccess?, failure: @escaping VMClosureFailure) -> VidMeRequest
     {
@@ -23,8 +31,55 @@ class WebService: NSObject
         return NewVideosRequest(offset: offset, success: success, failure: failure)
     }
     
-    func authUser(username: String, password: String, success: AuthCreateRequestClosureSuccess?, failure: @escaping VMClosureFailure) -> VidMeRequest
+    func getFeedVideosList(offset: UInt, success: FeedRequestClosureSuccess?, failure: @escaping VMClosureFailure) -> VidMeRequest?
     {
-        return AuthCreateRequest(password: password, login: username, success:success, failure: failure)
+        if self.user == nil
+        {
+            return nil
+        }
+        return FeedRequest(offset: offset, accessToken: self.user!.accessToken, success: success, failure: failure)
+    }
+    
+    func authUser(username: String, password: String) -> AuthCreateRequest
+    {
+        self.authListener?.authStarted()
+        return AuthCreateRequest(password: password, login: username, success: { (token) in
+            let user = User(accessToken: token, password: password,login: username)
+            user.saveToStorage()
+            self.user = user
+            self.authListener?.authorizeSuccess(user: user)
+        }, failure: { (error) in
+            self.authListener?.authorizeFailed(error: error)
+        })
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

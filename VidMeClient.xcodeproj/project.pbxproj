@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE671DBF1F42F59000388EAD /* KeychainStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE671DBE1F42F59000388EAD /* KeychainStorage.swift */; };
+		CE671DC11F42FE8D00388EAD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE671DC01F42FE8D00388EAD /* User.swift */; };
+		CE671DC31F432FAD00388EAD /* FeedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE671DC21F432FAD00388EAD /* FeedRequest.swift */; };
+		CE671DC51F4341B700388EAD /* ShowVideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE671DC41F4341B700388EAD /* ShowVideoVC.swift */; };
 		CE6BCA1C1F40A1C400E6FF79 /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6BCA1B1F40A1C400E6FF79 /* ErrorView.xib */; };
 		CE6BCA1E1F40A24300E6FF79 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6BCA1D1F40A24300E6FF79 /* ErrorView.swift */; };
 		CE6BCA211F40B07100E6FF79 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6BCA201F40B07100E6FF79 /* Extensions.swift */; };
 		CE6BCA231F40C3E400E6FF79 /* AuthCreateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6BCA221F40C3E400E6FF79 /* AuthCreateRequest.swift */; };
 		CE75B6501F3F75A300EAD85E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE75B64F1F3F75A300EAD85E /* AppDelegate.swift */; };
-		CE75B6521F3F75A300EAD85E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE75B6511F3F75A300EAD85E /* ViewController.swift */; };
 		CE75B6581F3F75A300EAD85E /* VidMeClient.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE75B6561F3F75A300EAD85E /* VidMeClient.xcdatamodeld */; };
 		CE75B66C1F3F760200EAD85E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE75B6651F3F760200EAD85E /* Assets.xcassets */; };
 		CE75B66D1F3F760200EAD85E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE75B6661F3F760200EAD85E /* LaunchScreen.storyboard */; };
@@ -34,13 +37,17 @@
 /* Begin PBXFileReference section */
 		3BF1971C75F15618E33B2DCF /* Pods-VidMeClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VidMeClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-VidMeClient/Pods-VidMeClient.release.xcconfig"; sourceTree = "<group>"; };
 		682E8978F60BE94FBF4D1B75 /* Pods_VidMeClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VidMeClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE5EF8091F423D6900B1AE34 /* VidMeClient-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VidMeClient-Bridging-Header.h"; sourceTree = "<group>"; };
+		CE671DBE1F42F59000388EAD /* KeychainStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainStorage.swift; sourceTree = "<group>"; };
+		CE671DC01F42FE8D00388EAD /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CE671DC21F432FAD00388EAD /* FeedRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedRequest.swift; sourceTree = "<group>"; };
+		CE671DC41F4341B700388EAD /* ShowVideoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowVideoVC.swift; sourceTree = "<group>"; };
 		CE6BCA1B1F40A1C400E6FF79 /* ErrorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
 		CE6BCA1D1F40A24300E6FF79 /* ErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		CE6BCA201F40B07100E6FF79 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		CE6BCA221F40C3E400E6FF79 /* AuthCreateRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthCreateRequest.swift; sourceTree = "<group>"; };
 		CE75B64C1F3F75A300EAD85E /* VidMeClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VidMeClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE75B64F1F3F75A300EAD85E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CE75B6511F3F75A300EAD85E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CE75B6571F3F75A300EAD85E /* VidMeClient.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VidMeClient.xcdatamodel; sourceTree = "<group>"; };
 		CE75B6651F3F760200EAD85E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE75B6671F3F760200EAD85E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -120,11 +127,11 @@
 			isa = PBXGroup;
 			children = (
 				CE75B64F1F3F75A300EAD85E /* AppDelegate.swift */,
-				CE75B6511F3F75A300EAD85E /* ViewController.swift */,
 				CE75B6641F3F760200EAD85E /* Resources */,
 				CE75B66B1F3F760200EAD85E /* Model */,
 				CE7BFB0A1F40403A0041D45D /* UI */,
 				CE75B6561F3F75A300EAD85E /* VidMeClient.xcdatamodeld */,
+				CE5EF8091F423D6900B1AE34 /* VidMeClient-Bridging-Header.h */,
 			);
 			path = VidMeClient;
 			sourceTree = "<group>";
@@ -149,6 +156,7 @@
 				CE8D56311F3F85590098EC3C /* Entities */,
 				CE8D562C1F3F7DF40098EC3C /* Requests */,
 				CE8D56341F3F91F70098EC3C /* WebService.swift */,
+				CE671DBE1F42F59000388EAD /* KeychainStorage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -162,6 +170,7 @@
 				CE7BFB0F1F4041090041D45D /* FeedVC.swift */,
 				CE7BFB131F4041D20041D45D /* VideoCell.swift */,
 				CE6BCA1D1F40A24300E6FF79 /* ErrorView.swift */,
+				CE671DC41F4341B700388EAD /* ShowVideoVC.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -173,6 +182,7 @@
 				CE8D562F1F3F827F0098EC3C /* FeaturedRequest.swift */,
 				CEC056301F4091120086113D /* NewVideosRequest.swift */,
 				CE6BCA221F40C3E400E6FF79 /* AuthCreateRequest.swift */,
+				CE671DC21F432FAD00388EAD /* FeedRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -181,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				CE8D56321F3F87820098EC3C /* VidMeVideo.swift */,
+				CE671DC01F42FE8D00388EAD /* User.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -302,6 +313,8 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-VidMeClient/Pods-VidMeClient-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 				"${BUILT_PRODUCTS_DIR}/NSURL+QueryDictionary/NSURL_QueryDictionary.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/ReachabilitySwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
@@ -310,6 +323,8 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JGProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NSURL_QueryDictionary.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReachabilitySwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
@@ -340,13 +355,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE671DC51F4341B700388EAD /* ShowVideoVC.swift in Sources */,
 				CE7BFB181F405F560041D45D /* VideoListVC.swift in Sources */,
+				CE671DBF1F42F59000388EAD /* KeychainStorage.swift in Sources */,
 				CE6BCA231F40C3E400E6FF79 /* AuthCreateRequest.swift in Sources */,
 				CE7BFB0E1F4040DE0041D45D /* NewVideosVC.swift in Sources */,
-				CE75B6521F3F75A300EAD85E /* ViewController.swift in Sources */,
 				CE7BFB101F4041090041D45D /* FeedVC.swift in Sources */,
 				CE75B6501F3F75A300EAD85E /* AppDelegate.swift in Sources */,
 				CE8D56351F3F91F70098EC3C /* WebService.swift in Sources */,
+				CE671DC11F42FE8D00388EAD /* User.swift in Sources */,
 				CE75B6581F3F75A300EAD85E /* VidMeClient.xcdatamodeld in Sources */,
 				CE7BFB0C1F4040AB0041D45D /* FeaturedVC.swift in Sources */,
 				CE7BFB141F4041D20041D45D /* VideoCell.swift in Sources */,
@@ -356,6 +373,7 @@
 				CE6BCA1E1F40A24300E6FF79 /* ErrorView.swift in Sources */,
 				CE8D56301F3F827F0098EC3C /* FeaturedRequest.swift in Sources */,
 				CE8D56331F3F87820098EC3C /* VidMeVideo.swift in Sources */,
+				CE671DC31F432FAD00388EAD /* FeedRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,11 +497,14 @@
 			baseConfigurationReference = FFFD40BFEACB096E394D6123 /* Pods-VidMeClient.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = LXU9U5V765;
 				INFOPLIST_FILE = "$(SRCROOT)/VidMeClient/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zby.VidMeClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "VidMeClient/VidMeClient-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -493,11 +514,13 @@
 			baseConfigurationReference = 3BF1971C75F15618E33B2DCF /* Pods-VidMeClient.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = LXU9U5V765;
 				INFOPLIST_FILE = "$(SRCROOT)/VidMeClient/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zby.VidMeClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "VidMeClient/VidMeClient-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
