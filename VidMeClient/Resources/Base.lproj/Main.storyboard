@@ -20,8 +20,32 @@
                     <view key="view" contentMode="scaleToFill" id="l0o-Ma-qqb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Xc-fu-gPo" customClass="UIImageView">
+                                <rect key="frame" x="0.0" y="35" width="320" height="200"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="C4n-O0-jiM"/>
+                                </constraints>
+                            </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="r1n-5t-eMT">
+                                <rect key="frame" x="142" y="117" width="37" height="37"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8Xc-fu-gPo" firstAttribute="centerX" secondItem="l0o-Ma-qqb" secondAttribute="centerX" id="3eJ-Vi-CBu"/>
+                            <constraint firstItem="r1n-5t-eMT" firstAttribute="centerX" secondItem="8Xc-fu-gPo" secondAttribute="centerX" id="FTS-Oo-aXl"/>
+                            <constraint firstItem="8Xc-fu-gPo" firstAttribute="width" secondItem="l0o-Ma-qqb" secondAttribute="width" id="Ufc-j9-GAp"/>
+                            <constraint firstItem="r1n-5t-eMT" firstAttribute="centerY" secondItem="8Xc-fu-gPo" secondAttribute="centerY" id="ZtI-iI-vsE"/>
+                            <constraint firstItem="8Xc-fu-gPo" firstAttribute="top" secondItem="ntG-Rv-ytf" secondAttribute="bottom" constant="15" id="p5n-oY-Woz"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="r1n-5t-eMT" id="hiP-2o-gN7"/>
+                        <outlet property="imageViewHeightConstraint" destination="C4n-O0-jiM" id="YFb-1x-QiT"/>
+                        <outlet property="videoImageView" destination="8Xc-fu-gPo" id="qqs-16-WTB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k1v-Rb-4Ga" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

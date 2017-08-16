@@ -24,11 +24,6 @@ class KeyChainStorage : NSObject
         static let tokenExpiredDate = "tokenExpiredDate"
     }
     
-    override init()
-    {
-        super.init()
-    }
-    
     func setAccessToken(accessToken: String)
     {
         keyChain[Constants.accessToken] = accessToken

@@ -11,9 +11,12 @@ import Foundation
 struct VidMeVideo
 {
     let thumbImageUrlString: String
+    let videoUrlString: String
     let title:String
     let videoId:String
     let likesCount:Int
+    let videoHeight: Double
+    let videoWidth: Double
 }
 
 extension VidMeVideo: Equatable
@@ -39,10 +42,14 @@ extension VidMeVideo
 {
     init(json: [String: Any]) throws
     {
+        print(json)
         guard let thumbImageUrl = json["thumbnail_url"] as? String,
             let title = json["title"] as? String,
             let likes = json["likes_count"] as? Int,
-            let videoId = json["video_id"] as? String
+            let videoId = json["video_id"] as? String,
+            let videoUrl = json["complete_url"] as? String,
+            let videoWidth = json["width"] as? Double,
+            let videoHeight = json["height"] as? Double
             else
         {
             throw NSError(domain: "", code: -1, userInfo: nil)
@@ -51,6 +58,9 @@ extension VidMeVideo
         self.title = title
         self.likesCount = likes
         self.videoId = videoId
+        self.videoUrlString = videoUrl
+        self.videoWidth = videoWidth
+        self.videoHeight = videoHeight
     }
 }
 

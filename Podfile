@@ -1,4 +1,4 @@
-platform:ios, '8.0'
+platform:ios, '9.0'
 use_frameworks!
 
 target 'VidMeClient' do
@@ -10,6 +10,7 @@ pod 'SnapKit'
 pod 'ReachabilitySwift', '~> 3'
 pod 'JGProgressHUD'
 pod 'KeychainAccess'
+pod 'Player', '~> 0.5.0'
 
 end
 

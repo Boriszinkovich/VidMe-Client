@@ -17,6 +17,7 @@ PODS:
   - JGProgressHUD (1.4)
   - KeychainAccess (3.0.2)
   - NSURL+QueryDictionary (1.2.0)
+  - Player (0.5.1)
   - ReachabilitySwift (3)
   - SDWebImage (4.1.0):
     - SDWebImage/Core (= 4.1.0)
@@ -28,6 +29,7 @@ DEPENDENCIES:
   - JGProgressHUD
   - KeychainAccess
   - NSURL+QueryDictionary (~> 1.1)
+  - Player (~> 0.5.0)
   - ReachabilitySwift (~> 3)
   - SDWebImage (~> 4.0)
   - SnapKit
@@ -37,10 +39,11 @@ SPEC CHECKSUMS:
   JGProgressHUD: 1617b0940cf80bb53e8f7d6f0fd69252ea45d6d4
   KeychainAccess: a986406022dfc7c634c691ad3bec670cc6a32002
   NSURL+QueryDictionary: bae616404e2adf6409d3d5c02a093cbf44c8a236
+  Player: 7bd61af457e558edf938066b03760f035a520837
   ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
   SDWebImage: 0e435c14e402a6730315a0fb79f95e68654d55a4
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
 
-PODFILE CHECKSUM: f46605419f5f29043a422b72e2524a25ace4834e
+PODFILE CHECKSUM: 8942911781d35f74d81487e9749b7f887f95ffa5
 
 COCOAPODS: 1.3.1

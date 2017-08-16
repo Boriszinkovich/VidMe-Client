@@ -231,7 +231,8 @@ extension VideoListVC :  UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
     {
-        let showVideoVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ShowVideoVCID")
+        let showVideoVC: ShowVideoVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ShowVideoVCID") as! ShowVideoVC
+        showVideoVC.currentVideo = self.videosArray[indexPath.row]
         self.navigationController?.pushViewController(showVideoVC, animated: true)
     }
 }

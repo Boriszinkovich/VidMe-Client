@@ -52,6 +52,11 @@ class WebService: NSObject
             self.authListener?.authorizeFailed(error: error)
         })
     }
+    
+    func authUser(user: User) -> AuthCreateRequest
+    {
+        return self.authUser(username: user.login, password: user.password)
+    }
 }
 
 
