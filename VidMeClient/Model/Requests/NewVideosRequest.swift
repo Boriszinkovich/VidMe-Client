@@ -16,7 +16,7 @@ class NewVideosRequest: VidMeRequest
     var request: URLSessionDataTask?
     var success:NewVideosRequestClosureSuccess?
     var offset: UInt = 0
-    var loadCount = 10
+    var loadCount: UInt = 10
     init(offset:UInt, success:NewVideosRequestClosureSuccess?, failure:@escaping VMClosureFailure)
     {
         super.init(failure: failure)
@@ -28,7 +28,7 @@ class NewVideosRequest: VidMeRequest
     override func send()
     {
         let urlString = VidMeRequest.host + "/videos/new"
-        let parameters = ["offset" : offset]
+        let parameters = ["offset" : offset, "limit" : loadCount]
         let successBlock = { (task: URLSessionDataTask, responseObject: Any?) -> Void in
             let jsonData = responseObject as? Data
             guard let data = jsonData,

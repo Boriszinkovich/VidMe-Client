@@ -24,7 +24,6 @@
 		CE6BCA211F40B07100E6FF79 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6BCA201F40B07100E6FF79 /* Extensions.swift */; };
 		CE6BCA231F40C3E400E6FF79 /* AuthCreateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6BCA221F40C3E400E6FF79 /* AuthCreateRequest.swift */; };
 		CE75B6501F3F75A300EAD85E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE75B64F1F3F75A300EAD85E /* AppDelegate.swift */; };
-		CE75B6581F3F75A300EAD85E /* VidMeClient.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE75B6561F3F75A300EAD85E /* VidMeClient.xcdatamodeld */; };
 		CE75B66C1F3F760200EAD85E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE75B6651F3F760200EAD85E /* Assets.xcassets */; };
 		CE75B66D1F3F760200EAD85E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE75B6661F3F760200EAD85E /* LaunchScreen.storyboard */; };
 		CE75B66E1F3F760200EAD85E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE75B6681F3F760200EAD85E /* Main.storyboard */; };
@@ -59,7 +58,6 @@
 		CE6BCA221F40C3E400E6FF79 /* AuthCreateRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthCreateRequest.swift; sourceTree = "<group>"; };
 		CE75B64C1F3F75A300EAD85E /* VidMeClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VidMeClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE75B64F1F3F75A300EAD85E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CE75B6571F3F75A300EAD85E /* VidMeClient.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VidMeClient.xcdatamodel; sourceTree = "<group>"; };
 		CE75B6651F3F760200EAD85E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE75B6671F3F760200EAD85E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE75B6691F3F760200EAD85E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -167,7 +165,6 @@
 				CE75B6641F3F760200EAD85E /* Resources */,
 				CE75B66B1F3F760200EAD85E /* Model */,
 				CE7BFB0A1F40403A0041D45D /* UI */,
-				CE75B6561F3F75A300EAD85E /* VidMeClient.xcdatamodeld */,
 				CE5EF8091F423D6900B1AE34 /* VidMeClient-Bridging-Header.h */,
 			);
 			path = VidMeClient;
@@ -397,7 +394,6 @@
 				CE8D56351F3F91F70098EC3C /* WebService.swift in Sources */,
 				CE671DE01F45039300388EAD /* VideoListFooterView.swift in Sources */,
 				CE671DC11F42FE8D00388EAD /* User.swift in Sources */,
-				CE75B6581F3F75A300EAD85E /* VidMeClient.xcdatamodeld in Sources */,
 				CE671DDC1F45039300388EAD /* NewVideosVC.swift in Sources */,
 				CE8D562E1F3F7E080098EC3C /* VidMeRequest.swift in Sources */,
 				CE671DDE1F45039300388EAD /* VideoListVC.swift in Sources */,
@@ -583,19 +579,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		CE75B6561F3F75A300EAD85E /* VidMeClient.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				CE75B6571F3F75A300EAD85E /* VidMeClient.xcdatamodel */,
-			);
-			currentVersion = CE75B6571F3F75A300EAD85E /* VidMeClient.xcdatamodel */;
-			path = VidMeClient.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = CE75B6441F3F75A300EAD85E /* Project object */;
 }

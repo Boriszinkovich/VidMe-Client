@@ -16,7 +16,7 @@ class FeedRequest: VidMeRequest
     var request: URLSessionDataTask?
     var success: FeedRequestClosureSuccess?
     var offset: UInt = 0
-    var loadCount = 10
+    var loadCount: UInt = 10
     var accessToken: AccessToken!
     init(offset: UInt, accessToken:AccessToken, success: FeedRequestClosureSuccess?, failure: @escaping VMClosureFailure)
     {
@@ -30,7 +30,7 @@ class FeedRequest: VidMeRequest
     override func send()
     {
         let urlString = VidMeRequest.host + "/videos/feed"
-        let parameters = ["offset" : offset]
+        let parameters = ["offset" : offset, "limit" : loadCount]
         let successBlock = { (task: URLSessionDataTask, responseObject: Any?) -> Void in
             let jsonData = responseObject as? Data
             guard let data = jsonData,
