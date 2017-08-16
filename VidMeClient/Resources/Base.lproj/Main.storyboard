@@ -177,10 +177,10 @@
             </objects>
             <point key="canvasLocation" x="1014" y="432"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab BarVC-->
         <scene sceneID="UPE-O7-hDb">
             <objects>
-                <tabBarController id="wBV-ag-Rl5" sceneMemberID="viewController">
+                <tabBarController id="wBV-ag-Rl5" customClass="MainTabBarVC" customModule="VidMeClient" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="OTt-kF-1LC"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="LuZ-EX-5LZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>

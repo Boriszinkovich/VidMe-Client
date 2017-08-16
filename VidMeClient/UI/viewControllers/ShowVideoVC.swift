@@ -31,9 +31,11 @@ class ShowVideoVC: UIViewController
         {
             return
         }
-
+        
+        self.title = currentVideo.title
+        
         self.imageViewHeightConstraint.constant = self.videoImageView.bounds.size.width * CGFloat((currentVideo.videoHeight / currentVideo.videoWidth))
-        let videoURL = URL(string: currentVideo.videoUrlString)
+        let videoURL = URL(string: currentVideo.smallestVideoUrlString!)
         
         asset = AVAsset(url:videoURL!)
         playerItem = AVPlayerItem(asset: asset!)

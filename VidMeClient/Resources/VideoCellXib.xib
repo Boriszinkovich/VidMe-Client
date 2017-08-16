@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,10 +11,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="videoCellIdent" id="NDj-dW-VzU" customClass="VideoCell" customModule="VidMeClient" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="297" height="400"/>
+            <rect key="frame" x="0.0" y="0.0" width="297" height="700"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="297" height="400"/>
+                <rect key="frame" x="0.0" y="0.0" width="297" height="700"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AUM-lt-cMD">
@@ -38,32 +37,54 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0qE-kg-Alv">
-                        <rect key="frame" x="10" y="398" width="277" height="1"/>
+                        <rect key="frame" x="10" y="698" width="277" height="1"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="9eP-kc-RNY"/>
                         </constraints>
                     </view>
+                    <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconCam" translatesAutoresizingMaskIntoConstraints="NO" id="sAG-69-eKY">
+                        <rect key="frame" x="249" y="5" width="40" height="40"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="Aqk-s8-Eoj"/>
+                            <constraint firstAttribute="height" constant="40" id="DKr-Z6-jTC"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3a7-qh-eec">
+                        <rect key="frame" x="8" y="78" width="40" height="40"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="6FD-cf-GSP"/>
+                            <constraint firstAttribute="height" constant="40" id="Z8Q-Oy-m0x"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstItem="AUM-lt-cMD" firstAttribute="leading" secondItem="NDj-dW-VzU" secondAttribute="leading" id="1se-7A-SA3"/>
                 <constraint firstItem="AUM-lt-cMD" firstAttribute="top" secondItem="NDj-dW-VzU" secondAttribute="top" id="4xt-IX-Vzi"/>
                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="M7l-gh-oBE" secondAttribute="bottom" constant="15" id="DH7-bF-pVy"/>
+                <constraint firstItem="M7l-gh-oBE" firstAttribute="top" secondItem="3a7-qh-eec" secondAttribute="bottom" constant="15" id="GsE-MR-sK0"/>
                 <constraint firstAttribute="bottom" secondItem="0qE-kg-Alv" secondAttribute="bottom" constant="1" id="LcE-KL-4Rm"/>
                 <constraint firstItem="UwL-k8-uPt" firstAttribute="top" secondItem="M7l-gh-oBE" secondAttribute="top" id="OHh-iM-T6W"/>
                 <constraint firstItem="AUM-lt-cMD" firstAttribute="centerX" secondItem="NDj-dW-VzU" secondAttribute="centerX" id="RuU-0x-Yj3"/>
                 <constraint firstAttribute="trailing" secondItem="UwL-k8-uPt" secondAttribute="trailing" constant="8" id="UPc-Xp-gYr"/>
+                <constraint firstAttribute="trailing" secondItem="sAG-69-eKY" secondAttribute="trailing" constant="8" id="XlU-IW-tBq"/>
                 <constraint firstAttribute="trailing" secondItem="AUM-lt-cMD" secondAttribute="trailing" id="Yso-Tg-3rM"/>
                 <constraint firstItem="UwL-k8-uPt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="M7l-gh-oBE" secondAttribute="trailing" constant="5" id="ZqC-Je-57s"/>
                 <constraint firstItem="M7l-gh-oBE" firstAttribute="top" secondItem="AUM-lt-cMD" secondAttribute="bottom" constant="5" id="aR8-76-dPB"/>
                 <constraint firstAttribute="trailing" secondItem="0qE-kg-Alv" secondAttribute="trailing" constant="10" id="bn5-Lo-lcJ"/>
+                <constraint firstItem="sAG-69-eKY" firstAttribute="top" secondItem="NDj-dW-VzU" secondAttribute="top" constant="5" id="rNt-lL-xfp"/>
                 <constraint firstItem="0qE-kg-Alv" firstAttribute="leading" secondItem="NDj-dW-VzU" secondAttribute="leading" constant="10" id="xyY-en-HUZ"/>
+                <constraint firstItem="3a7-qh-eec" firstAttribute="leading" secondItem="NDj-dW-VzU" secondAttribute="leading" constant="8" id="xzv-Ct-KDK"/>
                 <constraint firstItem="M7l-gh-oBE" firstAttribute="leading" secondItem="NDj-dW-VzU" secondAttribute="leading" constant="8" id="zSs-t4-G9O"/>
             </constraints>
             <size key="customSize" width="297" height="150"/>
             <connections>
+                <outlet property="cameraImageView" destination="sAG-69-eKY" id="fKr-jY-lVM"/>
                 <outlet property="likesCountLabel" destination="UwL-k8-uPt" id="jBZ-tr-Fk4"/>
+                <outlet property="soundImageView" destination="3a7-qh-eec" id="z7F-sB-Efp"/>
                 <outlet property="theHeightConstraint" destination="VcM-V5-qGe" id="CS6-mf-DUN"/>
                 <outlet property="thumbImageView" destination="AUM-lt-cMD" id="jtc-Q6-fX9"/>
                 <outlet property="videoTitleLabel" destination="M7l-gh-oBE" id="oKc-tD-Lhx"/>
@@ -71,4 +92,7 @@
             <point key="canvasLocation" x="40.5" y="47"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="iconCam" width="29" height="29"/>
+    </resources>
 </document>

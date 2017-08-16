@@ -19,16 +19,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>NSURL+QueryDictionary.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Player.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-VidMeClient.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -57,22 +47,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>37B2B37179ECCD6EEE04DE67726067D3</key>
+		<key>82F902FEAD06E2A45C468D34EAAEA75F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4D0B9673C275AEEB46E49351DE797758</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>72E139B30F7E4C129E99ED424F21649B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>88CF6BB7C9D3ABEF26D12C2B64CA7B52</key>
+		<key>85C294D2E5B297C6E75E2106BAA1B85B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,17 +62,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>916479AC42047A814F1D7E942E681682</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9C8FBB208BAA53CD17079238FB36F168</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>CF671F7E57B92905F1CC91D036D6B4A7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EA18B0CFC2B317A893FB7EE9A874B1E2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F7309FB6841277A21B73F8F9F5EEFC09</key>
 		<dict>
 			<key>primary</key>
 			<true/>

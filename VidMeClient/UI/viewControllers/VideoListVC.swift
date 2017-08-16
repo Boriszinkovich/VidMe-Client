@@ -21,17 +21,19 @@ class VideoListVC: UIViewController
     
     internal var internetReachability: Reachability!
     fileprivate var videosArray = Array<VidMeVideo>()
+    fileprivate var currentPlayingVideo: VidMeVideo?
     fileprivate var isUploading = false
     internal var isRefreshing = false
     fileprivate var hasMoreVideos = true
-        {
+    {
             didSet
             {
                 (self.collView.collectionViewLayout as! UICollectionViewFlowLayout).footerReferenceSize = CGSize(width: self.view.bounds.size.width, height: hasMoreVideos == true ? 70 : 0)
             }
     }
-    
+
     fileprivate let errorViewHeight = 35
+    fileprivate static var hasVideoSound: Bool = true
     
     fileprivate struct Cells
     {
@@ -65,19 +67,19 @@ class VideoListVC: UIViewController
             try reachability.startNotifier()
         } catch {
         }
+        NotificationCenter.default.addObserver(self, selector: #selector(receiveSoundChange(_:)), name: Notification.Name(Constants.Notifications.soundChangeNotification) , object: nil)
         self.uploadVideos()
     }
     
     override func viewWillAppear(_ animated: Bool)
     {
         super.viewWillAppear(animated)
-        self.navigationController?.isNavigationBarHidden = true
+        self.currentPlayingVideo?.isVideoPlaying = true
     }
     
-    override func viewWillDisappear(_ animated: Bool)
-    {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.navigationController?.isNavigationBarHidden = false
+        self.currentPlayingVideo?.isVideoPlaying = false
     }
     
     func methodLoadVideos(offset:UInt)
@@ -114,14 +116,17 @@ class VideoListVC: UIViewController
     
     func handleNewVideos(videos: [VidMeVideo], refreshing: Bool)
     {
-        if isRefreshing
+        if isRefreshing == true
         {
+            self.currentPlayingVideo?.isVideoPlaying = false
+            self.currentPlayingVideo = nil
             self.refreshControl.endRefreshing()
             self.videosArray.removeAll()
             self.isRefreshing = false
         }
+        let hadAnyVideo = self.videosArray.count != 0
         var noNewVideo = true
-        var theCheckedVideoSet = Set<VidMeVideo>()
+        var theCheckedVideoSet = Set<VidMeVideo>() //
         for vidMeVideo in videos {
             if noNewVideo == false || self.videosArray.index(of: vidMeVideo) == nil
             {
@@ -133,6 +138,13 @@ class VideoListVC: UIViewController
         self.videosArray.append(contentsOf: theCheckedVideoSet)
         self.isUploading = false
         self.collView.reloadData()
+        DispatchQueue.main.async
+        {
+            if self.isRefreshing == true || hadAnyVideo == false
+            {
+                self.checkCellForPlaying(fromTop: true)
+            }
+        }
     }
     
     func uploadVideos()
@@ -202,6 +214,33 @@ class VideoListVC: UIViewController
     {
         self.refreshVideos()
     }
+    
+    func checkCellForPlaying(fromTop: Bool)
+    {
+        var path = self.collView.indexPathForItem(at: CGPoint(x:20, y: (self.collView.contentOffset.y + self.collView.frame.size.height / 2)))
+        if fromTop == true
+        {
+            path = self.collView.indexPathForItem(at: CGPoint(x:20, y: (self.collView.bounds.size.height / 2)))
+        }
+        if (path != nil)
+        {
+            let video = self.videosArray[(path!.row)]
+            if self.currentPlayingVideo == nil || (self.currentPlayingVideo != nil && self.currentPlayingVideo != video)
+            {
+                self.currentPlayingVideo?.isVideoPlaying = false
+                self.currentPlayingVideo = video
+                self.currentPlayingVideo?.isVideoPlaying = true
+            }
+        }
+    }
+    
+    func receiveSoundChange(_ notification:Notification)
+    {
+        if let notifObject = notification.object as? Bool
+        {
+            VideoListVC.hasVideoSound = notifObject
+        }
+    }
 }
 
 extension VideoListVC :  UICollectionViewDataSource
@@ -216,6 +255,9 @@ extension VideoListVC :  UICollectionViewDataSource
     {
         let cell : VideoCell = collectionView.dequeueReusableCell(withReuseIdentifier: Cells.VideoCellIdent, for: indexPath) as! VideoCell
         cell.video = self.videosArray[indexPath.row]
+        cell.video.playingListener = cell
+        cell.soundImageView.isUserInteractionEnabled = true
+        cell.hasSound = VideoListVC.hasVideoSound
         return cell
     }
     
@@ -231,9 +273,13 @@ extension VideoListVC :  UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
     {
-        let showVideoVC: ShowVideoVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ShowVideoVCID") as! ShowVideoVC
-        showVideoVC.currentVideo = self.videosArray[indexPath.row]
-        self.navigationController?.pushViewController(showVideoVC, animated: true)
+        let video = self.videosArray[indexPath.row]
+        if video.smallestVideoUrlString != nil
+        {
+            let showVideoVC: ShowVideoVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ShowVideoVCID") as! ShowVideoVC
+            showVideoVC.currentVideo = self.videosArray[indexPath.row]
+            self.navigationController?.pushViewController(showVideoVC, animated: true)
+        }
     }
 }
 
@@ -249,7 +295,7 @@ extension VideoListVC: UICollectionViewDelegateFlowLayout, UICollectionViewDeleg
         {
             let theObjectsArray = Bundle.main.loadNibNamed(Cells.VideoCellXibName, owner: nil, options: nil)
             cell = theObjectsArray?.first as! VideoCell?
-            cell?.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width:self.view.bounds.size.width ,height: 400))
+            cell?.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width:self.view.bounds.size.width ,height: 1200))
             cell?.video = self.videosArray[indexPath.row]
             cell?.layoutIfNeeded()
         }
@@ -266,32 +312,11 @@ extension VideoListVC: UICollectionViewDelegateFlowLayout, UICollectionViewDeleg
                 self.uploadVideos()
             }
         }
+        self.checkCellForPlaying(fromTop: false)
     }
 }
 
-fileprivate class VideoListFooterView: UICollectionReusableView
-{
-    override init(frame: CGRect)
-    {
-        super.init(frame: frame)
-        let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
-        self.addSubview(activityIndicatorView)
-        activityIndicatorView.frame = CGRect(origin: CGPoint(x:80, y:40), size: CGSize(width: 100, height: 100))
-        activityIndicatorView.alpha = 1;
-        activityIndicatorView.startAnimating()
-        activityIndicatorView.snp.makeConstraints { (activityMake) in
-            activityMake.width.equalTo(30)
-            activityMake.height.equalTo(30)
-            activityMake.top.equalTo(self.snp.top).offset(20)
-            activityMake.centerX.equalToSuperview()
-        }
-    }
-    
-    required init?(coder aDecoder: NSCoder)
-    {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
+
 
 
 
