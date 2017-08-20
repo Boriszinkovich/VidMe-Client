@@ -12,7 +12,6 @@ import AFNetworking
 typealias VMClosureSuccess = () -> Void
 typealias VMClosureFailure = (_ error: Error) -> Void
 
-
 class VidMeRequest: NSObject
 {
     

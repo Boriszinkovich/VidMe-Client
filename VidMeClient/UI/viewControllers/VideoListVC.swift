@@ -15,13 +15,14 @@ class VideoListVC: UIViewController
     internal var collView: UICollectionView!
     fileprivate var activityIndicator: UIActivityIndicatorView!
     fileprivate var footerView: UICollectionReusableView!
+    fileprivate var cell:VideoCell! = (Bundle.main.loadNibNamed(Cells.VideoCellXibName, owner: nil, options: nil)!.first as! VideoCell)
     fileprivate var refreshControl: UIRefreshControl!
     fileprivate var errorHeightConstraint: Constraint? = nil
     internal var errorView:ErrorView!
     
     internal var internetReachability: Reachability!
     internal var videosArray = Array<VidMeVideo>()
-    internal weak var currentPlayingVideo: VidMeVideo?
+    internal var currentPlayingVideo: VidMeVideo?
     fileprivate var isUploading = false
     internal var isRefreshing = false
     fileprivate var hasMoreVideos = true
@@ -308,10 +309,11 @@ extension VideoListVC: UICollectionViewDelegateFlowLayout, UICollectionViewDeleg
         
         if (cell == nil)
         {
-            let theObjectsArray = Bundle.main.loadNibNamed(Cells.VideoCellXibName, owner: nil, options: nil)
-            cell = theObjectsArray?.first as! VideoCell?
+
+            cell = self.cell
             cell?.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width:self.view.bounds.size.width ,height: 1200))
             cell?.video = self.videosArray[indexPath.row]
+            cell?.setNeedsLayout()
             cell?.layoutIfNeeded()
         }
         let cellSize = cell?.systemLayoutSizeFitting(UILayoutFittingCompressedSize, withHorizontalFittingPriority: UILayoutPriorityDefaultHigh, verticalFittingPriority: UILayoutPriorityDefaultLow)
@@ -327,37 +329,37 @@ extension VideoListVC: UICollectionViewDelegateFlowLayout, UICollectionViewDeleg
                 self.uploadVideos()
             }
         }
-//        let currentOffset = scrollView.contentOffset;
-//        let currentTime = NSDate.timeIntervalSinceReferenceDate;
+        let currentOffset = scrollView.contentOffset;
+        let currentTime = NSDate.timeIntervalSinceReferenceDate;
         
-//        let wasScrollingSpeed = isScrollingFast
-//        let timeDiff = currentTime - lastOffsetCapture;
-//        if(timeDiff > 0.1) {
-//            let distance = currentOffset.y - lastOffset.y;
-//            //The multiply by 10, / 1000 isn't really necessary.......
-//            let scrollSpeedNotAbs = (distance * 10) / 1000; //in pixels per millisecond
-//            
-//            let scrollSpeed = fabsf(Float(scrollSpeedNotAbs));
-//            if (scrollSpeed > 0.5)
-//            {
-//                isScrollingFast = true;
-//            } else
-//            {
-//                isScrollingFast = false;
-//            }
-//            
-//            lastOffset = currentOffset;
-//            lastOffsetCapture = currentTime;
-//        }
-//        self.checkCellForPlaying(fromTop: false)
-//        if isScrollingFast == false
-//        {
-            self.checkCellForPlaying(fromTop: false)
-//        }
-//        else if wasScrollingSpeed == false
-//        {
-//            self.currentPlayingVideo?.isVideoPlaying = false
-//        }
+        let wasScrollingSpeed = isScrollingFast
+        let timeDiff = currentTime - lastOffsetCapture;
+        if(timeDiff > 0.1)
+        {
+            let distance = currentOffset.y - lastOffset.y;
+            //The multiply by 10, / 1000 isn't really necessary.......
+            let scrollSpeedNotAbs = (distance * 10) / 1000; //in pixels per millisecond
+            
+            let scrollSpeed = fabsf(Float(scrollSpeedNotAbs));
+            if (scrollSpeed > 0.5)
+            {
+                isScrollingFast = true;
+            } else
+            {
+                isScrollingFast = false;
+            }
+            
+            lastOffset = currentOffset;
+            lastOffsetCapture = currentTime;
+            if isScrollingFast == false
+            {
+                self.checkCellForPlaying(fromTop: false)
+            }
+            else if wasScrollingSpeed == false
+            {
+                self.currentPlayingVideo?.isVideoPlaying = false
+            }
+        }
     }
 }
 

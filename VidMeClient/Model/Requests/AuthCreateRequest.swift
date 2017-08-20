@@ -26,7 +26,6 @@ class AuthCreateRequest: VidMeRequest
         send()
     }
     
-    
     override func send()
     {
         let urlString = VidMeRequest.host + "/auth/create"

@@ -66,7 +66,7 @@ class VideoCell: UICollectionViewCell
         }
     }
     
-    public weak var video: VidMeVideo!
+    public var video: VidMeVideo!
         {
         didSet
         {
@@ -136,9 +136,6 @@ class VideoCell: UICollectionViewCell
                             }
                         }
                     }
-                    else {
-                    }
-
                 })
             }
         }
