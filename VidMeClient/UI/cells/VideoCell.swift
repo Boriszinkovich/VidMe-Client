@@ -86,6 +86,14 @@ class VideoCell: UICollectionViewCell
     {
         self.hasSound = !self.hasSound
         self.muteSound(mute: !self.hasSound)
+        if self.hasSound
+        {
+            self.soundImageView!.image = UIImage(named:"icon_Sound")
+        }
+        else
+        {
+            self.soundImageView!.image = UIImage(named:"icon_NoSound")
+        }
         NotificationCenter.default.post(name: Notification.Name(Constants.Notifications.soundChangeNotification), object: self.hasSound)
     }
     
