@@ -57,6 +57,12 @@ class WebService: NSObject
     {
         return self.authUser(username: user.login, password: user.password)
     }
+    
+    func deleteAuth()
+    {
+        self.user = nil
+        KeyChainStorage.sharedInstance.removeUserData()
+    }
 }
 
 

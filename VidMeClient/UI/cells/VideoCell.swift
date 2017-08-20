@@ -32,7 +32,6 @@ class VideoCell: UICollectionViewCell
     private var player : AVPlayer? = nil
     private var asset : AVURLAsset? = nil
     private var playerItem: AVPlayerItem? = nil
-    
     public var hasSound: Bool = true
     
     override func layoutSubviews()
@@ -67,7 +66,7 @@ class VideoCell: UICollectionViewCell
         }
     }
     
-    public var video: VidMeVideo!
+    public weak var video: VidMeVideo!
         {
         didSet
         {
@@ -95,15 +94,45 @@ class VideoCell: UICollectionViewCell
         if let videoUrlString = self.video.smallestVideoUrlString
         {
             self.cameraImageView.alpha = 1
-            self.soundImageView.alpha = 0
-            asset = AVURLAsset(url:URL(string: videoUrlString)!)
-            playerItem = AVPlayerItem(asset: asset!)
-            
-            player = AVPlayer(playerItem: self.playerItem)
-            playerLayer = AVPlayerLayer(player: self.player)
-            self.player?.play()
-            self.observerTrullyAdded = true
-            self.player!.addObserver(self, forKeyPath: "currentItem.loadedTimeRanges", options: .new, context: nil);
+            DispatchQueue.global().async
+                {
+                let keys = ["tracks", "duration"]
+                self.asset = AVURLAsset(url:URL(string: videoUrlString)!)
+                self.asset!.loadValuesAsynchronously(forKeys: keys, completionHandler:
+                {
+                    var keyStatusError: NSError?
+                    for key in keys {
+                        var error: NSError?
+                        let keyStatus: AVKeyValueStatus = (self.asset?.statusOfValue(forKey: key, error: &error))!
+                        if keyStatus == .failed {
+                            let userInfo = [NSUnderlyingErrorKey : key]
+                            keyStatusError = NSError(domain: "", code: -1, userInfo: userInfo)
+                        }
+                        else if keyStatus != .loaded {
+
+                        }
+                    }
+                    if keyStatusError == nil
+                    {
+                        if self.isPlaying != nil && self.isPlaying! == true
+                        {
+                            DispatchQueue.main.async {
+                                self.playerItem = AVPlayerItem(asset: self.asset!)
+                                
+                                self.player = AVPlayer(playerItem: self.playerItem)
+                                self.playerLayer = AVPlayerLayer(player: self.player)
+                                self.layoutSubviews()
+                                self.player?.play()
+                                self.observerTrullyAdded = true
+                                self.player!.addObserver(self, forKeyPath: "currentItem.loadedTimeRanges", options: .new, context: nil);
+                            }
+                        }
+                    }
+                    else {
+                    }
+
+                })
+            }
         }
     }
     
@@ -116,8 +145,10 @@ class VideoCell: UICollectionViewCell
             self.player?.removeObserver(self, forKeyPath: "currentItem.loadedTimeRanges")
             self.observerTrullyAdded = false
         }
+        self.asset?.cancelLoading()
         self.player = nil
         self.playerLayer = nil
+        self.soundImageView.alpha = 0
     }
     
     private func adjustToPlayerReadyState()

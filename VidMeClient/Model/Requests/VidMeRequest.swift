@@ -23,12 +23,15 @@ class VidMeRequest: NSObject
     var failure: VMClosureFailure?
     var manager: AFHTTPSessionManager!
     
+    static var counter = 0
+    
     init(failure: VMClosureFailure?)
     {
         super.init()
         self.failure = failure
         
-        let sessionConfiguration: URLSessionConfiguration? = URLSessionConfiguration.default
+        let sessionConfiguration: URLSessionConfiguration? = URLSessionConfiguration.background(withIdentifier: "\(VidMeRequest.counter)")
+        VidMeRequest.counter += 1
         sessionConfiguration?.timeoutIntervalForRequest = 30
         self.manager = AFHTTPSessionManager(sessionConfiguration: sessionConfiguration)
     }

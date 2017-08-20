@@ -16,8 +16,15 @@ class FeedVC: VideoListVC
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var logOutButton: UIButton!
+    {
+        didSet
+        {
+            self.logOutButton.addTarget(self, action: #selector(logOutTapped(_:)), for: .touchUpInside)
+        }
+    }
     private var progressHud: JGProgressHUD?
-    fileprivate var isUserAuthorized: Bool! = false
+    fileprivate var isUserAuthorized: Bool! = ((WebService.sharedInstance.user != nil) && (WebService.sharedInstance.user?.accessToken.isValid() == true))
     {
         didSet
         {
@@ -29,7 +36,7 @@ class FeedVC: VideoListVC
     {
         super.viewDidLoad()
         self.createFeedUI()
-        self.isUserAuthorized = ((WebService.sharedInstance.user != nil) && (WebService.sharedInstance.user?.accessToken.isValid() == true))
+        self.updateUIAuthState(needAuth: !self.isUserAuthorized)
     }
     
     func createFeedUI()
@@ -48,6 +55,13 @@ class FeedVC: VideoListVC
         signInButton.addTarget(self, action: #selector(signInTapped(_:)), for: .touchUpInside)
     }
     
+    func logOutTapped(_ button: UIButton)
+    {
+        WebService.sharedInstance.deleteAuth()
+        self.isUserAuthorized = false
+        self.updateUIAuthState(needAuth: true)
+    }
+    
     func signInTapped(_ button: UIButton)
     {
         self.passwordTextField.resignFirstResponder()
@@ -58,7 +72,6 @@ class FeedVC: VideoListVC
         }
         else if self.passwordTextField.text?.isEmpty == true || self.usernameTextField.text?.isEmpty == true
         {
-            //TODO
             self.updateErrorLabel(errorText: NSLocalizedString("Invalid login or password", comment: ""))
             return;
         }
@@ -139,13 +152,19 @@ class FeedVC: VideoListVC
     {
         if needAuth == true
         {
+            self.currentPlayingVideo?.isVideoPlaying = false
+            self.videosArray.removeAll()
+            self.collView.reloadData()
             authView.alpha = 1
+            logOutButton.alpha = 0
             self.view.bringSubview(toFront: authView)
             self.view.bringSubview(toFront: self.errorView)
         }
         else
         {
             authView.alpha = 0
+            logOutButton.alpha = 1
+            self.view.bringSubview(toFront: self.logOutButton)
         }
     }
     
@@ -179,6 +198,8 @@ extension FeedVC: AuthListener
     
     func authorizeSuccess(user: User)
     {
+        self.passwordTextField.text = ""
+        self.usernameTextField.text = ""
         self.isUserAuthorized = true
         self.showSuccessAlert()
         self.isRefreshing = false

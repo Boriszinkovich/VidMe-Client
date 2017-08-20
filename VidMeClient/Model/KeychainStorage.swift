@@ -64,7 +64,7 @@ class KeyChainStorage : NSObject
         return keyChain[Constants.tokenExpiredDate]
     }
     
-    func removeAll()
+    func removeUserData()
     {
         keyChain[Constants.password] = nil
         keyChain[Constants.login] = nil

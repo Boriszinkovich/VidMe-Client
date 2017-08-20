@@ -12,7 +12,7 @@ import ReachabilitySwift
 
 class VideoListVC: UIViewController
 {
-    fileprivate var collView: UICollectionView!
+    internal var collView: UICollectionView!
     fileprivate var activityIndicator: UIActivityIndicatorView!
     fileprivate var footerView: UICollectionReusableView!
     fileprivate var refreshControl: UIRefreshControl!
@@ -20,8 +20,8 @@ class VideoListVC: UIViewController
     internal var errorView:ErrorView!
     
     internal var internetReachability: Reachability!
-    fileprivate var videosArray = Array<VidMeVideo>()
-    fileprivate var currentPlayingVideo: VidMeVideo?
+    internal var videosArray = Array<VidMeVideo>()
+    internal weak var currentPlayingVideo: VidMeVideo?
     fileprivate var isUploading = false
     internal var isRefreshing = false
     fileprivate var hasMoreVideos = true
@@ -34,6 +34,10 @@ class VideoListVC: UIViewController
 
     fileprivate let errorViewHeight = 35
     fileprivate static var hasVideoSound: Bool = true
+    
+    var lastOffset: CGPoint = CGPoint(x:0, y:0);
+    var lastOffsetCapture: TimeInterval = Date.timeIntervalSinceReferenceDate;
+    var isScrollingFast: Bool = false;
     
     fileprivate struct Cells
     {
@@ -68,7 +72,7 @@ class VideoListVC: UIViewController
         } catch {
         }
         NotificationCenter.default.addObserver(self, selector: #selector(receiveSoundChange(_:)), name: Notification.Name(Constants.Notifications.soundChangeNotification) , object: nil)
-        self.uploadVideos()
+        self.refreshVideos()
     }
     
     override func viewWillAppear(_ animated: Bool)
@@ -116,33 +120,44 @@ class VideoListVC: UIViewController
     
     func handleNewVideos(videos: [VidMeVideo], refreshing: Bool)
     {
-        if isRefreshing == true
+        if refreshing
         {
             self.currentPlayingVideo?.isVideoPlaying = false
             self.currentPlayingVideo = nil
             self.refreshControl.endRefreshing()
             self.videosArray.removeAll()
             self.isRefreshing = false
-        }
-        let hadAnyVideo = self.videosArray.count != 0
-        var noNewVideo = true
-        var theCheckedVideoSet = Set<VidMeVideo>() //
-        for vidMeVideo in videos {
-            if noNewVideo == false || self.videosArray.index(of: vidMeVideo) == nil
-            {
-                noNewVideo = false
-                theCheckedVideoSet.insert(vidMeVideo)
-            }
-        }
-        self.hasMoreVideos = videos.count != 0
-        self.videosArray.append(contentsOf: theCheckedVideoSet)
-        self.isUploading = false
-        self.collView.reloadData()
-        DispatchQueue.main.async
-        {
-            if self.isRefreshing == true || hadAnyVideo == false
+            self.videosArray.removeAll()
+            self.videosArray.append(contentsOf: videos)
+            self.collView.reloadData()
+            DispatchQueue.main.async
             {
                 self.checkCellForPlaying(fromTop: true)
+            }
+        }
+        else
+        {
+            let hadAnyVideo = self.videosArray.count != 0
+            self.hasMoreVideos = videos.count != 0
+            if videos.count != 0
+            {
+                var theIndexArray:[IndexPath] = []
+                let startIndex = self.videosArray.count
+                for i in 0..<videos.count
+                {
+                    theIndexArray.append(IndexPath(row: startIndex + i, section: 0))
+                }
+                self.collView.performBatchUpdates(
+                    {
+                        self.videosArray.append(contentsOf: videos)
+                        self.collView.insertItems(at: theIndexArray)
+                }, completion: { (completed) in
+                    self.isUploading = false
+                    if hadAnyVideo == false
+                    {
+                        self.checkCellForPlaying(fromTop: true)
+                    }
+                })
             }
         }
     }
@@ -305,14 +320,44 @@ extension VideoListVC: UICollectionViewDelegateFlowLayout, UICollectionViewDeleg
     
     func scrollViewDidScroll(_ scrollView: UIScrollView)
     {
-        if ((scrollView.contentOffset.y + scrollView.frame.size.height) >= scrollView.contentSize.height - self.view.bounds.size.height)
+        if ((scrollView.contentOffset.y + scrollView.frame.size.height) >= scrollView.contentSize.height - self.view.bounds.size.height * 2)
         {
             if self.hasMoreVideos == true
             {
                 self.uploadVideos()
             }
         }
-        self.checkCellForPlaying(fromTop: false)
+//        let currentOffset = scrollView.contentOffset;
+//        let currentTime = NSDate.timeIntervalSinceReferenceDate;
+        
+//        let wasScrollingSpeed = isScrollingFast
+//        let timeDiff = currentTime - lastOffsetCapture;
+//        if(timeDiff > 0.1) {
+//            let distance = currentOffset.y - lastOffset.y;
+//            //The multiply by 10, / 1000 isn't really necessary.......
+//            let scrollSpeedNotAbs = (distance * 10) / 1000; //in pixels per millisecond
+//            
+//            let scrollSpeed = fabsf(Float(scrollSpeedNotAbs));
+//            if (scrollSpeed > 0.5)
+//            {
+//                isScrollingFast = true;
+//            } else
+//            {
+//                isScrollingFast = false;
+//            }
+//            
+//            lastOffset = currentOffset;
+//            lastOffsetCapture = currentTime;
+//        }
+//        self.checkCellForPlaying(fromTop: false)
+//        if isScrollingFast == false
+//        {
+            self.checkCellForPlaying(fromTop: false)
+//        }
+//        else if wasScrollingSpeed == false
+//        {
+//            self.currentPlayingVideo?.isVideoPlaying = false
+//        }
     }
 }
 
